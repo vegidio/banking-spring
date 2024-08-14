@@ -1,5 +1,9 @@
-package io.vinicius.banking.exception
+package io.vinicius.banking.advice
 
+import io.vinicius.banking.exception.BadRequestException
+import io.vinicius.banking.exception.HttpException
+import io.vinicius.banking.exception.ServerErrorException
+import io.vinicius.banking.exception.UnauthorizedException
 import io.vinicius.banking.ktx.capitalize
 import io.vinicius.banking.model.Response
 import jakarta.validation.ConstraintViolationException

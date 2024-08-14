@@ -10,7 +10,8 @@ private val logger = KotlinLogging.logger {}
 class ApiGatewayApplication
 
 fun main(args: Array<String>) {
-    runApplication<ApiGatewayApplication>(*args)
+    val context = runApplication<ApiGatewayApplication>(*args)
+    val port = context.environment.getProperty("server.port")
 
-    logger.info { "api-gateway started on port :3001" }
+    logger.info { "API Gateway started on port :$port" }
 }
