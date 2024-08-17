@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package io.vinicius.banking.grpc;
+option java_multiple_files = true;
+
+enum TransactionType {
+    DEPOSIT = 0;
+    WITHDRAWAL = 1;
+    TRANSFER = 2;
+    PAYMENT = 3;
+}
+
+message TransactionRequest {
+    int32 bank_account_id = 1;
+    TransactionType transaction_type = 2;
+    string destination_bank_account_id = 3;
+    double amount = 4;
+}
+
+message TransactionResponse {
+    bool success = 1;
+    int32 transaction_id = 2;
+    string message = 3;
+}
+
+service TransactionService {
+    rpc Create(TransactionRequest) returns (TransactionResponse);
+}
