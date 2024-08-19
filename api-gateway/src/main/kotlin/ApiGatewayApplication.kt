@@ -13,5 +13,5 @@ fun main(args: Array<String>) {
     val context = runApplication<ApiGatewayApplication>(*args)
     val port = context.environment.getProperty("server.port")
 
-    logger.info { "API Gateway started on port :$port" }
+    logger.info { "API Gateway started on HTTP port :$port" }
 }

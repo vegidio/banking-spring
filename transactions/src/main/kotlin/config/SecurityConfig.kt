@@ -5,14 +5,13 @@ import com.nimbusds.jwt.SignedJWT
 import io.grpc.Metadata
 import io.grpc.ServerCall
 import io.grpc.kotlin.CoroutineContextServerInterceptor
-import io.vinicius.banking.exception.UnauthorizedException
+import io.vinicius.banking.exception.UnauthenticatedException
 import io.vinicius.banking.ktx.isFresh
 import io.vinicius.banking.ktx.toJwt
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ThreadContextElement
 import net.devh.boot.grpc.server.interceptor.GrpcGlobalServerInterceptor
 import net.devh.boot.grpc.server.security.authentication.BearerAuthenticationReader
-import net.devh.boot.grpc.server.security.authentication.CompositeGrpcAuthenticationReader
 import net.devh.boot.grpc.server.security.authentication.GrpcAuthenticationReader
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -38,8 +37,7 @@ class SecurityConfig(private val certProperties: CertProperties) {
 
     @Bean
     fun authenticationReader(): GrpcAuthenticationReader {
-        val readers = listOf(BearerAuthenticationReader(::BearerTokenAuthenticationToken))
-        return CompositeGrpcAuthenticationReader(readers)
+        return BearerAuthenticationReader(::BearerTokenAuthenticationToken)
     }
 
     @Bean
@@ -47,15 +45,8 @@ class SecurityConfig(private val certProperties: CertProperties) {
         val signedJwt = try { SignedJWT.parse(token) } catch (ex: ParseException) { null }
         val isValid = signedJwt?.verify(ECDSAVerifier(certProperties.accessTokenPublic))
 
-        if (isValid != true) throw UnauthorizedException(
-            type = "JWT_INVALID",
-            detail = "The bearer token is invalid"
-        )
-
-        if (!signedJwt.isFresh()) throw UnauthorizedException(
-            type = "JWT_EXPIRED",
-            detail = "The bearer token expired"
-        )
+        if (isValid != true) throw UnauthenticatedException("JWT_INVALID")
+        if (!signedJwt.isFresh()) throw UnauthenticatedException("JWT_EXPIRED")
 
         signedJwt.toJwt()
     }

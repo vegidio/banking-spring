@@ -21,9 +21,7 @@ class PropertyConfiguration {
 @ConfigurationProperties("cert")
 data class CertProperties(
     val accessTokenPrivate: ECKey,
-    val accessTokenPublic: ECKey,
-    val refreshTokenPrivate: ECKey,
-    val refreshTokenPublic: ECKey
+    val accessTokenPublic: ECKey
 )
 
 @ConfigurationPropertiesBinding
