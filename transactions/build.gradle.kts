@@ -27,6 +27,7 @@ repositories {
 dependencies {
     implementation(libs.bouncycastle.bcpkix)
     implementation(libs.bouncycastle.bcprov)
+    implementation(libs.coroutines.core)
     implementation(libs.hibernate.utils)
     implementation(libs.jackson.jaxb)
     implementation(libs.jackson.kotlin)
@@ -35,7 +36,6 @@ dependencies {
     implementation(libs.kotlin.reflect)
     implementation(libs.kotlin.stdlib)
     implementation(libs.spring.data)
-    implementation(libs.spring.graphql)
     implementation(libs.spring.oauth2)
     implementation(libs.spring.validation)
     implementation(libs.spring.web)
@@ -52,7 +52,6 @@ dependencies {
 
     runtimeOnly(libs.postgres)
 
-    testImplementation(libs.spring.graphql.test)
     testImplementation(libs.spring.test)
     testImplementation(libs.spring.webflux)
 }

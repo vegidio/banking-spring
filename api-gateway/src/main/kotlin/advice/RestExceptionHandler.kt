@@ -1,5 +1,6 @@
 package io.vinicius.banking.advice
 
+import io.github.oshai.kotlinlogging.KotlinLogging
 import io.vinicius.banking.exception.BadRequestException
 import io.vinicius.banking.exception.HttpException
 import io.vinicius.banking.exception.ServerErrorException
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 @Suppress("MethodOverloading")
 @ControllerAdvice
 class RestExceptionHandler {
+    private val logger = KotlinLogging.logger {}
 
     @ExceptionHandler(value = [HttpException::class])
     fun handleApiException(ex: HttpException) = ResponseEntity<Response<Nothing>>(Response(error = ex.body), ex.status)
@@ -71,7 +73,8 @@ class RestExceptionHandler {
     // region - HTTP 500 Internal Server Error
     @ExceptionHandler(value = [Exception::class])
     fun handleApiException(ex: Exception): ResponseEntity<Response<Nothing>> {
-        ex.printStackTrace()
+        logger.error(ex) { "An unexpected error occurred" }
+
         val title = "Unexpected error"
         val detail = "For security reasons, check the server logs for detailed information"
         val exception = ServerErrorException(title = title, detail = detail)

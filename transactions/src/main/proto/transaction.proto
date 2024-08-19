@@ -13,14 +13,14 @@ enum TransactionType {
 message TransactionRequest {
     int32 bank_account_id = 1;
     TransactionType transaction_type = 2;
-    string destination_bank_account_id = 3;
+    optional string destination_bank_account_id = 3;
     double amount = 4;
 }
 
 message TransactionResponse {
     bool success = 1;
     int32 transaction_id = 2;
-    string message = 3;
+    optional string message = 3;
 }
 
 service TransactionService {

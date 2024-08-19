@@ -7,6 +7,7 @@ import com.nimbusds.jose.crypto.ECDSASigner
 import com.nimbusds.jose.crypto.ECDSAVerifier
 import com.nimbusds.jwt.JWTClaimsSet
 import com.nimbusds.jwt.SignedJWT
+import io.github.oshai.kotlinlogging.KotlinLogging
 import io.vinicius.banking.exception.UnauthorizedException
 import io.vinicius.banking.ktx.isFresh
 import io.vinicius.banking.ktx.toJwt
@@ -31,6 +32,8 @@ class SecurityConfig(
     private val certProperties: CertProperties,
     @Qualifier("handlerExceptionResolver") private val resolver: HandlerExceptionResolver
 ) {
+    private val logger = KotlinLogging.logger {}
+
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         return http
@@ -42,7 +45,7 @@ class SecurityConfig(
     }
 
     private fun authEntryPoint() = AuthenticationEntryPoint { request, response, authException ->
-        authException.printStackTrace()
+        logger.error(authException)  { "Authentication failed" }
         resolver.resolveException(request, response, null, authException)
     }
 
