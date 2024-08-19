@@ -6,12 +6,16 @@ import io.vinicius.banking.grpc.TransactionServiceGrpcKt
 import io.vinicius.banking.grpc.transactionResponse
 import net.devh.boot.grpc.server.service.GrpcService
 import org.springframework.security.access.prepost.PreAuthorize
+import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.security.oauth2.jwt.Jwt
 
 @GrpcService
 class TransactionService : TransactionServiceGrpcKt.TransactionServiceCoroutineImplBase() {
 
     @PreAuthorize("isAuthenticated()")
     override suspend fun create(request: TransactionRequest): TransactionResponse {
+        val jwt = SecurityContextHolder.getContext().authentication.principal as Jwt
+
         return transactionResponse {
             transactionId = 1
             success = true
