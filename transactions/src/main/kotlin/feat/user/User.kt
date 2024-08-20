@@ -2,7 +2,6 @@ package io.vinicius.banking.feat.user
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonProperty.Access
-import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.persistence.Table
@@ -24,7 +23,6 @@ data class User(
     @JdbcTypeCode(SqlTypes.JSON)
     val address: Address,
 
-    @Schema(hidden = true)
     @JsonProperty(access = Access.WRITE_ONLY)
     val hash: String
 ) {

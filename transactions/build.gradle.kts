@@ -25,10 +25,11 @@ repositories {
 }
 
 dependencies {
+    // Needed for Nimbus EC Key Pair generation
     implementation(libs.bouncycastle.bcpkix)
     implementation(libs.bouncycastle.bcprov)
+
     implementation(libs.coroutines.core)
-    implementation(libs.hibernate.utils)
     implementation(libs.jackson.jaxb)
     implementation(libs.jackson.kotlin)
     implementation(libs.javax.xml)

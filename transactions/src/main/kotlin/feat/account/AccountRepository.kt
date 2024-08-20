@@ -1,0 +1,9 @@
+package io.vinicius.banking.feat.account
+
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.stereotype.Repository
+
+@Repository
+interface AccountRepository : JpaRepository<Account, Int> {
+    fun findByUserId(userId: Int): List<Account>
+}

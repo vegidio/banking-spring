@@ -1,7 +1,6 @@
 [versions]
 bouncycastle = "1.78.1"
 detekt = "1.23.4"
-hibernate-utils = "3.8.2"
 javax-xml = "2.3.1"
 kotlin = "2.0.10"
 kotlin-logging = "5.1.4"
@@ -22,7 +21,6 @@ spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 [libraries]
 bouncycastle-bcpkix = { module = "org.bouncycastle:bcpkix-jdk18on", version.ref = "bouncycastle" }
 bouncycastle-bcprov = { module = "org.bouncycastle:bcprov-jdk18on", version.ref = "bouncycastle" }
-hibernate-utils = { module = "io.hypersistence:hypersistence-utils-hibernate-63", version.ref = "hibernate-utils" }
 jackson-jaxb = { module = "com.fasterxml.jackson.module:jackson-module-jaxb-annotations" }
 jackson-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
 javax-xml = { module = "javax.xml.bind:jaxb-api", version.ref = "javax-xml" }

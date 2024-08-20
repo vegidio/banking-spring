@@ -10,7 +10,9 @@ import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.oauth2.jwt.Jwt
 
 @GrpcService
-class TransactionService : TransactionServiceGrpcKt.TransactionServiceCoroutineImplBase() {
+class TransactionService(
+    private val transactionRepo: TransactionRepository
+) : TransactionServiceGrpcKt.TransactionServiceCoroutineImplBase() {
 
     @PreAuthorize("isAuthenticated()")
     override suspend fun create(request: TransactionRequest): TransactionResponse {

@@ -1,15 +1,9 @@
 package io.vinicius.banking.feat.transaction.dto
 
+import io.vinicius.banking.feat.transaction.TransactionType
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Positive
 import java.math.BigDecimal
-
-enum class TransactionType {
-    Deposit,
-    Withdrawal,
-    Transfer,
-    Payment
-}
 
 data class TransactionCreateDto(
     @field:NotNull
