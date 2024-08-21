@@ -1,23 +1,25 @@
 package io.vinicius.banking.feat.account
 
 import io.vinicius.banking.feat.user.User
+import io.vinicius.banking.grpc.AccountResponse
+import io.vinicius.banking.grpc.accountResponse
+import io.vinicius.banking.ktx.toGrpc
 import jakarta.persistence.Entity
 import jakarta.persistence.Enumerated
+import jakarta.persistence.GeneratedValue
 import jakarta.persistence.Id
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.Table
-import org.hibernate.annotations.Generated
 import org.hibernate.annotations.JdbcType
 import org.hibernate.dialect.PostgreSQLEnumJdbcType
-import org.hibernate.generator.EventType
 import java.math.BigDecimal
 import java.time.OffsetDateTime
 
 @Entity
 @Table(name = "accounts")
 data class Account(
-    @Id @Generated(event = [EventType.INSERT])
-    val id: Int,
+    @Id @GeneratedValue
+    val id: Int = 0,
 
     @ManyToOne
     val user: User,
@@ -29,3 +31,14 @@ data class Account(
     val balance: BigDecimal,
     val createdAt: OffsetDateTime
 )
+
+fun Account.toGrpc(): AccountResponse {
+    val self = this
+    return accountResponse {
+        id = self.id
+        userId = self.user.id
+        type = self.type.toGrpc()
+        balance = self.balance.toString()
+        createdAt = self.createdAt.toGrpc()
+    }
+}

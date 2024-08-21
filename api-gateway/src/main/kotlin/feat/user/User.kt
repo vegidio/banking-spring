@@ -4,17 +4,16 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonProperty.Access
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
 import jakarta.persistence.Id
 import jakarta.persistence.Table
-import org.hibernate.annotations.Generated
 import org.hibernate.annotations.JdbcTypeCode
-import org.hibernate.generator.EventType
 import org.hibernate.type.SqlTypes
 
 @Entity
 @Table(name = "users")
 data class User(
-    @Id @Generated(event = [EventType.INSERT])
+    @Id @GeneratedValue
     val id: Int,
 
     val name: String,

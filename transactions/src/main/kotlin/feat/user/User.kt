@@ -3,18 +3,17 @@ package io.vinicius.banking.feat.user
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonProperty.Access
 import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
 import jakarta.persistence.Id
 import jakarta.persistence.Table
-import org.hibernate.annotations.Generated
 import org.hibernate.annotations.JdbcTypeCode
-import org.hibernate.generator.EventType
 import org.hibernate.type.SqlTypes
 
 @Entity
 @Table(name = "users")
 data class User(
-    @Id @Generated(event = [EventType.INSERT])
-    val id: Int,
+    @Id @GeneratedValue
+    val id: Int = 0,
 
     val name: String,
     val username: String,

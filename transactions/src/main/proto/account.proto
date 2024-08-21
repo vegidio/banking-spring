@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package io.vinicius.banking.grpc;
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+enum AccountType {
+    CHECKING = 0;
+    SAVINGS = 1;
+}
+
+message CreateAccountRequest {
+    AccountType type = 2;
+}
+
+message AccountResponse {
+    int32 id = 1;
+    int32 user_id = 2;
+    AccountType type = 3;
+    string balance = 4;
+    google.protobuf.Timestamp created_at = 5;
+}
+
+message AccountListResponse {
+    repeated AccountResponse results = 1;
+}
+
+service AccountService {
+    rpc Create(CreateAccountRequest) returns (AccountResponse);
+    rpc Retrieve(google.protobuf.Empty) returns (AccountListResponse);
+}
