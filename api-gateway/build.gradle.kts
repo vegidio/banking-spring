@@ -29,6 +29,8 @@ dependencies {
     implementation(libs.bouncycastle.bcpkix)
     implementation(libs.bouncycastle.bcprov)
 
+    implementation(libs.coroutines.core)
+    implementation(libs.coroutines.reactor)
     implementation(libs.jackson.jaxb)
     implementation(libs.jackson.kotlin)
     implementation(libs.javax.xml)

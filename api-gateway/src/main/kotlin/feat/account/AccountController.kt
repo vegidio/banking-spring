@@ -1,6 +1,5 @@
 package io.vinicius.banking.feat.account
 
-import io.github.oshai.kotlinlogging.KotlinLogging
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.security.SecurityRequirement
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -18,11 +17,10 @@ import java.security.Principal
 @RequestMapping("\${apiPrefix}/v1/accounts")
 @Tag(name = "Account")
 class AccountController(private val accountService: AccountService) {
-    private val logger = KotlinLogging.logger {}
 
     @PostMapping
     @Operation(security = [SecurityRequirement(name = "access-token")])
-    fun createAccount(
+    suspend fun createAccount(
         principal: Principal,
         @Valid @RequestBody dto: AccountCreateDto
     ) {
