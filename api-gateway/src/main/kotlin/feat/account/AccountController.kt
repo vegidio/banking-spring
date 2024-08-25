@@ -1,10 +1,10 @@
-package io.vinicius.banking.feat.transaction
+package io.vinicius.banking.feat.account
 
 import io.github.oshai.kotlinlogging.KotlinLogging
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.security.SecurityRequirement
 import io.swagger.v3.oas.annotations.tags.Tag
-import io.vinicius.banking.feat.transaction.dto.TransactionCreateDto
+import io.vinicius.banking.feat.account.dto.AccountCreateDto
 import jakarta.validation.Valid
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.PostMapping
@@ -15,18 +15,17 @@ import java.security.Principal
 
 @PreAuthorize("isAuthenticated()")
 @RestController
-@RequestMapping("\${apiPrefix}/v1/transactions")
-@Tag(name = "Transaction")
-class TransactionController {
+@RequestMapping("\${apiPrefix}/v1/accounts")
+@Tag(name = "Account")
+class AccountController(private val accountService: AccountService) {
     private val logger = KotlinLogging.logger {}
 
     @PostMapping
     @Operation(security = [SecurityRequirement(name = "access-token")])
-    fun createTransaction(
+    fun createAccount(
         principal: Principal,
-        @Valid @RequestBody dto: TransactionCreateDto
+        @Valid @RequestBody dto: AccountCreateDto
     ) {
-        logger.info { "Principal: ${principal.name}" }
-        logger.info { "Creating transaction: $dto" }
+        accountService.createAccount(dto)
     }
 }

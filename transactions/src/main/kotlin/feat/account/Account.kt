@@ -3,7 +3,7 @@ package io.vinicius.banking.feat.account
 import io.vinicius.banking.feat.user.User
 import io.vinicius.banking.grpc.AccountResponse
 import io.vinicius.banking.grpc.accountResponse
-import io.vinicius.banking.ktx.toGrpc
+import io.vinicius.banking.ktx.toProto
 import jakarta.persistence.Entity
 import jakarta.persistence.Enumerated
 import jakarta.persistence.GeneratedValue
@@ -32,13 +32,13 @@ data class Account(
     val createdAt: OffsetDateTime
 )
 
-fun Account.toGrpc(): AccountResponse {
+fun Account.toProto(): AccountResponse {
     val self = this
     return accountResponse {
         id = self.id
         userId = self.user.id
-        type = self.type.toGrpc()
+        type = self.type.toProto()
         balance = self.balance.toString()
-        createdAt = self.createdAt.toGrpc()
+        createdAt = self.createdAt.toProto()
     }
 }

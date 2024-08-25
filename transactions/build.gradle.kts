@@ -45,7 +45,7 @@ dependencies {
     implementation(libs.grpc.kotlin)
     implementation(libs.grpc.protobuf)
     implementation(libs.protobuf.kotlin)
-    implementation(libs.spring.grpc)
+    implementation(libs.spring.grpc.server)
 
     annotationProcessor(libs.spring.configuration)
 

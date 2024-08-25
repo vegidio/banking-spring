@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${PG_HOST}:${PG_PORT}/bank
+    username: ${PG_USERNAME}
+    password: ${PG_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    show_sql: false
+
+  graphql:
+    schema:
+      file-extensions: .gql
+
+apiPrefix: /api
+
+springdoc:
+  default-produces-media-type: application/json
+  swagger-ui:
+    path: /docs
+
+server:
+  error:
+    include-stacktrace: never
+  port: 3001
+
+grpc:
+  client:
+    account:
+      address: static://localhost:9002
+      negotiation-type: plaintext
+
+cert:
+  access-token-private: certs/access-token-private.pem
+  access-token-public: certs/access-token-public.pem
+  refresh-token-private: certs/refresh-token-private.pem
+  refresh-token-public: certs/refresh-token-public.pem

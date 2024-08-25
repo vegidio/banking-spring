@@ -1,12 +1,13 @@
 package io.vinicius.banking.feat.transaction.dto
 
 import io.vinicius.banking.feat.transaction.TransactionType
+import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Positive
 import java.math.BigDecimal
 
 data class TransactionCreateDto(
-    @field:NotNull
+    @field:Min(1)
     val accountId: Int,
 
     @field:NotNull
@@ -15,5 +16,5 @@ data class TransactionCreateDto(
     @field:Positive
     val amount: BigDecimal,
 
-    val message: String
+    val message: String?
 )

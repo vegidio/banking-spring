@@ -1,14 +1,16 @@
+import com.google.protobuf.gradle.id
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 plugins {
+    alias(libs.plugins.detekt)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.jpa)
     alias(libs.plugins.kotlin.spring)
+    alias(libs.plugins.ktlint)
+    alias(libs.plugins.protobuf.plugin)
     alias(libs.plugins.spring)
     alias(libs.plugins.spring.boot)
-    alias(libs.plugins.detekt)
-    alias(libs.plugins.ktlint)
 }
 
 group = "io.vinicius.banking"
@@ -44,6 +46,12 @@ dependencies {
     implementation(libs.springdoc.security)
     implementation(libs.springdoc.ui)
 
+    // gRPC
+    implementation(libs.grpc.kotlin)
+    implementation(libs.grpc.protobuf)
+    implementation(libs.protobuf.kotlin)
+    implementation(libs.spring.grpc.client)
+
     annotationProcessor(libs.spring.configuration)
 
     developmentOnly(libs.spring.devtools)
@@ -59,6 +67,27 @@ dependencies {
 detekt {
     config.setFrom("$rootDir/../detekt.yml")
     source.setFrom("$rootDir/src/main/kotlin")
+}
+
+protobuf {
+    protoc {
+        artifact = libs.protobuf.protoc.get().toString()
+    }
+    plugins {
+        create("grpc").artifact = libs.grpc.gen.java.get().toString()
+        create("grpckt").artifact = libs.grpc.gen.kotlin.get().toString() + ":jdk8@jar"
+    }
+    generateProtoTasks {
+        all().forEach {
+            it.plugins {
+                id("grpc")
+                id("grpckt")
+            }
+            it.builtins {
+                id("kotlin")
+            }
+        }
+    }
 }
 
 tasks.test {

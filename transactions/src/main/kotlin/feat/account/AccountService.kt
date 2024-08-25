@@ -42,7 +42,7 @@ class AccountService(
             accountRepo.save(account)
         }
 
-        return newAccount.toGrpc()
+        return newAccount.toProto()
     }
 
     @PreAuthorize("isAuthenticated()")
@@ -53,7 +53,7 @@ class AccountService(
         }
 
         return accountListResponse {
-            results.addAll(accounts.map { it.toGrpc() })
+            results.addAll(accounts.map { it.toProto() })
         }
     }
 }

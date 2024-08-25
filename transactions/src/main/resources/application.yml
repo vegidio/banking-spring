@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${PG_HOST}:${PG_PORT}/bank
+    username: ${PG_USERNAME}
+    password: ${PG_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    show_sql: false
+
+server:
+  error:
+    include-stacktrace: never
+  port: 3002
+
+grpc:
+  server:
+    port: 9002
+
+cert:
+  access-token-private: certs/access-token-private.pem
+  access-token-public: certs/access-token-public.pem
