@@ -1,4 +1,4 @@
-package io.vinicius.banking.feat.user
+package io.vinicius.banking.transactions.feat.user
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonProperty.Access

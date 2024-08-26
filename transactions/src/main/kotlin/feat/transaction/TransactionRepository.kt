@@ -1,4 +1,4 @@
-package io.vinicius.banking.feat.transaction
+package io.vinicius.banking.transactions.feat.transaction
 
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository

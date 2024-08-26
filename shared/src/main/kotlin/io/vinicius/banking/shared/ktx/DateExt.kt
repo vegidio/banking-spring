@@ -1,4 +1,4 @@
-package io.vinicius.banking.ktx
+package io.vinicius.banking.shared.ktx
 
 import java.time.OffsetDateTime
 import java.time.ZoneOffset

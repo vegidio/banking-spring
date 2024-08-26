@@ -1,11 +1,11 @@
-package io.vinicius.banking.feat.transaction
+package io.vinicius.banking.transactions.feat.transaction
 
 import com.google.protobuf.Empty
 import io.vinicius.banking.grpc.CreateTransactionRequest
 import io.vinicius.banking.grpc.TransactionListResponse
 import io.vinicius.banking.grpc.TransactionResponse
 import io.vinicius.banking.grpc.TransactionServiceGrpcKt
-import io.vinicius.banking.ktx.subject
+import io.vinicius.banking.transactions.ktx.subject
 import net.devh.boot.grpc.server.service.GrpcService
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.security.core.context.SecurityContextHolder

@@ -1,4 +1,4 @@
-package io.vinicius.banking.feat.user
+package io.vinicius.banking.api.feat.user
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.security.SecurityRequirement

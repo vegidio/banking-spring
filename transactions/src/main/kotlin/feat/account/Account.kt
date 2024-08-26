@@ -1,9 +1,9 @@
-package io.vinicius.banking.feat.account
+package io.vinicius.banking.transactions.feat.account
 
-import io.vinicius.banking.feat.user.User
 import io.vinicius.banking.grpc.AccountResponse
 import io.vinicius.banking.grpc.accountResponse
-import io.vinicius.banking.ktx.toProto
+import io.vinicius.banking.transactions.feat.user.User
+import io.vinicius.banking.transactions.ktx.toProto
 import jakarta.persistence.Entity
 import jakarta.persistence.Enumerated
 import jakarta.persistence.GeneratedValue

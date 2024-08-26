@@ -1,1 +1,0 @@
-protoc --java_out=src/main/kotlin --kotlin_out=src/main/kotlin src/main/proto/transactions.proto

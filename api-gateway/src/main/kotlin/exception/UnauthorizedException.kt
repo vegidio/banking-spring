@@ -1,6 +1,6 @@
-package io.vinicius.banking.exception
+package io.vinicius.banking.api.exception
 
-import io.vinicius.banking.model.Error
+import io.vinicius.banking.api.model.Error
 import org.springframework.http.HttpStatus
 import org.springframework.security.core.AuthenticationException
 

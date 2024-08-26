@@ -1,4 +1,4 @@
-package io.vinicius.banking.feat.auth.dto
+package io.vinicius.banking.api.feat.auth.dto
 
 data class TokenResponseDto(
     val accessToken: String,

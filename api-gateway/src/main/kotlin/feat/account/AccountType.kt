@@ -1,4 +1,4 @@
-package io.vinicius.banking.feat.account
+package io.vinicius.banking.api.feat.account
 
 import io.vinicius.banking.grpc.AccountType as GrpcAccountType
 

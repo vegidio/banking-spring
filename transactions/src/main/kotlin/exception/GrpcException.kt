@@ -1,4 +1,4 @@
-package io.vinicius.banking.exception
+package io.vinicius.banking.transactions.exception
 
 import io.grpc.Metadata
 import io.grpc.Status

@@ -1,4 +1,4 @@
-package io.vinicius.banking.config.interceptor
+package io.vinicius.banking.api.config.interceptor
 
 import io.github.oshai.kotlinlogging.KotlinLogging
 import io.grpc.CallOptions
@@ -6,7 +6,7 @@ import io.grpc.Channel
 import io.grpc.ClientCall
 import io.grpc.ClientInterceptor
 import io.grpc.MethodDescriptor
-import io.vinicius.banking.ktx.jwt
+import io.vinicius.banking.api.ktx.jwt
 import net.devh.boot.grpc.client.interceptor.GrpcGlobalClientInterceptor
 import net.devh.boot.grpc.client.security.CallCredentialsHelper
 import org.springframework.security.core.context.SecurityContextHolder

@@ -1,9 +1,9 @@
-package io.vinicius.banking.advice
+package io.vinicius.banking.transactions.advice
 
 import io.github.oshai.kotlinlogging.KotlinLogging
 import io.grpc.Status
 import io.grpc.StatusException
-import io.vinicius.banking.exception.GrpcException
+import io.vinicius.banking.transactions.exception.GrpcException
 import net.devh.boot.grpc.server.advice.GrpcAdvice
 import net.devh.boot.grpc.server.advice.GrpcExceptionHandler
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException

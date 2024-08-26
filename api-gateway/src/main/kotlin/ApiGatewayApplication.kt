@@ -1,4 +1,4 @@
-package io.vinicius.banking
+package io.vinicius.banking.api
 
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.boot.autoconfigure.SpringBootApplication

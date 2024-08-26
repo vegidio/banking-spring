@@ -1,10 +1,9 @@
 [versions]
 bouncycastle = "1.78.1"
 coroutines = "1.8.1"
-detekt = "1.23.6"
+detekt = "1.23.4"
 grpc = "1.63.2"
 grpc-kotlin = "1.4.1"
-hibernate-utils = "3.8.2"
 javax-xml = "2.3.1"
 kotlin = "2.0.10"
 kotlin-logging = "5.1.4"
@@ -14,6 +13,7 @@ protobuf-plugin = "0.9.4"
 spring = "1.1.6"
 spring-boot = "3.3.2"
 spring-grpc = "3.1.0.RELEASE"
+springdoc = "1.8.0"
 
 [plugins]
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
@@ -29,11 +29,11 @@ spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 bouncycastle-bcpkix = { module = "org.bouncycastle:bcpkix-jdk18on", version.ref = "bouncycastle" }
 bouncycastle-bcprov = { module = "org.bouncycastle:bcprov-jdk18on", version.ref = "bouncycastle" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-reactor = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor", version.ref = "coroutines" }
 grpc-gen-java = { module = "io.grpc:protoc-gen-grpc-java", version.ref = "grpc" }
 grpc-gen-kotlin = { module = "io.grpc:protoc-gen-grpc-kotlin", version.ref = "grpc-kotlin" }
 grpc-kotlin = { module = "io.grpc:grpc-kotlin-stub", version.ref = "grpc-kotlin" }
 grpc-protobuf = { module = "io.grpc:grpc-protobuf", version.ref = "grpc" }
-hibernate-utils = { module = "io.hypersistence:hypersistence-utils-hibernate-63", version.ref = "hibernate-utils" }
 jackson-jaxb = { module = "com.fasterxml.jackson.module:jackson-module-jaxb-annotations" }
 jackson-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
 javax-xml = { module = "javax.xml.bind:jaxb-api", version.ref = "javax-xml" }
@@ -46,9 +46,15 @@ protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protob
 spring-configuration = { module = "org.springframework.boot:spring-boot-configuration-processor" }
 spring-data = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
 spring-devtools = { module = "org.springframework.boot:spring-boot-devtools" }
+spring-graphql = { module = "org.springframework.boot:spring-boot-starter-graphql" }
+spring-graphql-test = { module = "org.springframework.graphql:spring-graphql-test" }
+spring-grpc-client = { module = "net.devh:grpc-client-spring-boot-starter", version.ref = "spring-grpc" }
 spring-grpc-server = { module = "net.devh:grpc-server-spring-boot-starter", version.ref = "spring-grpc" }
 spring-oauth2 = { module = "org.springframework.boot:spring-boot-starter-oauth2-resource-server" }
 spring-test = { module = "org.springframework.boot:spring-boot-starter-test" }
 spring-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
 spring-web = { module = "org.springframework.boot:spring-boot-starter-web" }
 spring-webflux = { module = "org.springframework:spring-webflux" }
+springdoc-kotlin = { module = "org.springdoc:springdoc-openapi-kotlin", version.ref = "springdoc" }
+springdoc-security = { module = "org.springdoc:springdoc-openapi-security", version.ref = "springdoc" }
+springdoc-ui = { module = "org.springdoc:springdoc-openapi-ui", version.ref = "springdoc" }

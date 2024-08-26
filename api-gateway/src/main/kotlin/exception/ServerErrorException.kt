@@ -1,4 +1,4 @@
-package io.vinicius.banking.exception
+package io.vinicius.banking.api.exception
 
 import org.springframework.http.HttpStatus
 

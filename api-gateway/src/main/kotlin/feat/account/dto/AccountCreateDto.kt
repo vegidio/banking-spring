@@ -1,6 +1,6 @@
-package io.vinicius.banking.feat.account.dto
+package io.vinicius.banking.api.feat.account.dto
 
-import io.vinicius.banking.feat.account.AccountType
+import io.vinicius.banking.api.feat.account.AccountType
 import jakarta.validation.constraints.NotNull
 
 data class AccountCreateDto(

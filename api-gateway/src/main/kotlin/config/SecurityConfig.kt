@@ -1,4 +1,4 @@
-package io.vinicius.banking.config
+package io.vinicius.banking.api.config
 
 import com.nimbusds.jose.JOSEObjectType
 import com.nimbusds.jose.JWSAlgorithm
@@ -8,9 +8,9 @@ import com.nimbusds.jose.crypto.ECDSAVerifier
 import com.nimbusds.jwt.JWTClaimsSet
 import com.nimbusds.jwt.SignedJWT
 import io.github.oshai.kotlinlogging.KotlinLogging
-import io.vinicius.banking.exception.UnauthorizedException
-import io.vinicius.banking.ktx.isFresh
-import io.vinicius.banking.ktx.toJwt
+import io.vinicius.banking.api.exception.UnauthorizedException
+import io.vinicius.banking.api.ktx.isFresh
+import io.vinicius.banking.api.ktx.toJwt
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

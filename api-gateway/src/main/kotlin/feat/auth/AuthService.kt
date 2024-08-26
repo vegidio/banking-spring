@@ -1,9 +1,9 @@
-package io.vinicius.banking.feat.auth
+package io.vinicius.banking.api.feat.auth
 
-import io.vinicius.banking.exception.UnauthorizedException
-import io.vinicius.banking.feat.auth.dto.TokenResponseDto
-import io.vinicius.banking.feat.user.User
-import io.vinicius.banking.feat.user.UserRepository
+import io.vinicius.banking.api.exception.UnauthorizedException
+import io.vinicius.banking.api.feat.auth.dto.TokenResponseDto
+import io.vinicius.banking.api.feat.user.User
+import io.vinicius.banking.api.feat.user.UserRepository
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder
 import org.springframework.security.oauth2.jwt.JwtClaimsSet

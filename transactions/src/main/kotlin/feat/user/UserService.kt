@@ -1,6 +1,6 @@
-package io.vinicius.banking.feat.user
+package io.vinicius.banking.transactions.feat.user
 
-import io.vinicius.banking.exception.NotFoundException
+import io.vinicius.banking.transactions.exception.NotFoundException
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 

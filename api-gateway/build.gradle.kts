@@ -1,4 +1,3 @@
-import com.google.protobuf.gradle.id
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -8,12 +7,11 @@ plugins {
     alias(libs.plugins.kotlin.jpa)
     alias(libs.plugins.kotlin.spring)
     alias(libs.plugins.ktlint)
-    alias(libs.plugins.protobuf.plugin)
     alias(libs.plugins.spring)
     alias(libs.plugins.spring.boot)
 }
 
-group = "io.vinicius.banking"
+group = "io.vinicius.banking.api"
 version = "1.0.0"
 
 kotlin {
@@ -25,6 +23,8 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":shared"))
+
     // Needed for Nimbus EC Key Pair generation
     implementation(libs.bouncycastle.bcpkix)
     implementation(libs.bouncycastle.bcprov)
@@ -39,6 +39,7 @@ dependencies {
     implementation(libs.kotlin.stdlib)
     implementation(libs.spring.data)
     implementation(libs.spring.graphql)
+    implementation(libs.spring.grpc.client)
     implementation(libs.spring.oauth2)
     implementation(libs.spring.validation)
     implementation(libs.spring.web)
@@ -47,12 +48,6 @@ dependencies {
     implementation(libs.springdoc.kotlin)
     implementation(libs.springdoc.security)
     implementation(libs.springdoc.ui)
-
-    // gRPC
-    implementation(libs.grpc.kotlin)
-    implementation(libs.grpc.protobuf)
-    implementation(libs.protobuf.kotlin)
-    implementation(libs.spring.grpc.client)
 
     annotationProcessor(libs.spring.configuration)
 
@@ -69,27 +64,6 @@ dependencies {
 detekt {
     config.setFrom("$rootDir/../detekt.yml")
     source.setFrom("$rootDir/src/main/kotlin")
-}
-
-protobuf {
-    protoc {
-        artifact = libs.protobuf.protoc.get().toString()
-    }
-    plugins {
-        create("grpc").artifact = libs.grpc.gen.java.get().toString()
-        create("grpckt").artifact = libs.grpc.gen.kotlin.get().toString() + ":jdk8@jar"
-    }
-    generateProtoTasks {
-        all().forEach {
-            it.plugins {
-                id("grpc")
-                id("grpckt")
-            }
-            it.builtins {
-                id("kotlin")
-            }
-        }
-    }
 }
 
 tasks.test {

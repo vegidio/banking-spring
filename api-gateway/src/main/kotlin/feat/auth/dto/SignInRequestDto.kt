@@ -1,4 +1,4 @@
-package io.vinicius.banking.feat.auth.dto
+package io.vinicius.banking.api.feat.auth.dto
 
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotEmpty

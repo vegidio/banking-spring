@@ -1,4 +1,4 @@
-package io.vinicius.banking.feat.transaction
+package io.vinicius.banking.transactions.feat.transaction
 
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue

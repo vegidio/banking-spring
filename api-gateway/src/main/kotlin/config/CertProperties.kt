@@ -1,4 +1,4 @@
-package io.vinicius.banking.config
+package io.vinicius.banking.api.config
 
 import com.nimbusds.jose.jwk.ECKey
 import com.nimbusds.jose.jwk.JWK

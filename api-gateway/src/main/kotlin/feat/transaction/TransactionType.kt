@@ -1,4 +1,4 @@
-package io.vinicius.banking.feat.transaction
+package io.vinicius.banking.api.feat.transaction
 
 enum class TransactionType {
     Deposit,

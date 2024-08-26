@@ -1,12 +1,12 @@
-package io.vinicius.banking.advice
+package io.vinicius.banking.api.advice
 
 import io.github.oshai.kotlinlogging.KotlinLogging
-import io.vinicius.banking.exception.BadRequestException
-import io.vinicius.banking.exception.HttpException
-import io.vinicius.banking.exception.ServerErrorException
-import io.vinicius.banking.exception.UnauthorizedException
-import io.vinicius.banking.ktx.capitalize
-import io.vinicius.banking.model.Response
+import io.vinicius.banking.api.exception.BadRequestException
+import io.vinicius.banking.api.exception.HttpException
+import io.vinicius.banking.api.exception.ServerErrorException
+import io.vinicius.banking.api.exception.UnauthorizedException
+import io.vinicius.banking.api.ktx.capitalize
+import io.vinicius.banking.api.model.Response
 import jakarta.validation.ConstraintViolationException
 import org.springframework.http.ResponseEntity
 import org.springframework.http.converter.HttpMessageNotReadableException

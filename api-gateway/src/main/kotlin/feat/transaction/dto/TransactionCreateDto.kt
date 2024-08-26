@@ -1,6 +1,6 @@
-package io.vinicius.banking.feat.transaction.dto
+package io.vinicius.banking.api.feat.transaction.dto
 
-import io.vinicius.banking.feat.transaction.TransactionType
+import io.vinicius.banking.api.feat.transaction.TransactionType
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Positive

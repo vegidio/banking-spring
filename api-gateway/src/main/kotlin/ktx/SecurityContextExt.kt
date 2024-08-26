@@ -1,4 +1,4 @@
-package io.vinicius.banking.ktx
+package io.vinicius.banking.api.ktx
 
 import org.springframework.security.core.context.SecurityContext
 import org.springframework.security.oauth2.jwt.Jwt

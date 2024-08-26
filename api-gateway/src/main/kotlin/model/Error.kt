@@ -1,4 +1,4 @@
-package io.vinicius.banking.model
+package io.vinicius.banking.api.model
 
 import com.fasterxml.jackson.annotation.JsonInclude
 

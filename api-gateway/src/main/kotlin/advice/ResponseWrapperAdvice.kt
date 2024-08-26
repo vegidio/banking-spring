@@ -1,6 +1,6 @@
-package io.vinicius.banking.advice
+package io.vinicius.banking.api.advice
 
-import io.vinicius.banking.model.Response
+import io.vinicius.banking.api.model.Response
 import org.springframework.core.MethodParameter
 import org.springframework.http.MediaType
 import org.springframework.http.converter.HttpMessageConverter

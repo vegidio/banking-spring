@@ -1,7 +1,7 @@
-package io.vinicius.banking.feat.account
+package io.vinicius.banking.api.feat.account
 
 import io.github.oshai.kotlinlogging.KotlinLogging
-import io.vinicius.banking.feat.account.dto.AccountCreateDto
+import io.vinicius.banking.api.feat.account.dto.AccountCreateDto
 import io.vinicius.banking.grpc.AccountServiceGrpcKt.AccountServiceCoroutineStub
 import io.vinicius.banking.grpc.createAccountRequest
 import org.springframework.stereotype.Service
