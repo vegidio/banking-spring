@@ -13,7 +13,7 @@ protobuf-plugin = "0.9.4"
 spring = "1.1.6"
 spring-boot = "3.3.2"
 spring-grpc = "3.1.0.RELEASE"
-springdoc = "1.8.0"
+springdoc = "2.6.0"
 
 [plugins]
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
@@ -55,6 +55,5 @@ spring-test = { module = "org.springframework.boot:spring-boot-starter-test" }
 spring-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
 spring-web = { module = "org.springframework.boot:spring-boot-starter-web" }
 spring-webflux = { module = "org.springframework:spring-webflux" }
-springdoc-kotlin = { module = "org.springdoc:springdoc-openapi-kotlin", version.ref = "springdoc" }
-springdoc-security = { module = "org.springdoc:springdoc-openapi-security", version.ref = "springdoc" }
-springdoc-ui = { module = "org.springdoc:springdoc-openapi-ui", version.ref = "springdoc" }
+springdoc-common = { module = "org.springdoc:springdoc-openapi-starter-common", version.ref = "springdoc" }
+springdoc-web = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }

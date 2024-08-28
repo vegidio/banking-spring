@@ -14,7 +14,7 @@ import org.hibernate.type.SqlTypes
 @Table(name = "users")
 data class User(
     @Id @GeneratedValue
-    val id: Int,
+    val id: Int = 0,
 
     val name: String,
     val username: String,

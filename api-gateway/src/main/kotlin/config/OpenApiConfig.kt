@@ -4,7 +4,7 @@ import io.swagger.v3.oas.models.Components
 import io.swagger.v3.oas.models.OpenAPI
 import io.swagger.v3.oas.models.info.Info
 import io.swagger.v3.oas.models.security.SecurityScheme
-import org.springdoc.core.customizers.OpenApiCustomiser
+import org.springdoc.core.customizers.OpenApiCustomizer
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -15,8 +15,8 @@ class OpenApiConfig {
         return OpenAPI()
             .info(
                 Info()
-                    .title("Template Spring")
-                    .description("API to control authentication and fetch info about countries")
+                    .title("Banking API")
+                    .description("API Gateway to send requests to other microservices")
                     .version("1.0")
             )
             .components(
@@ -33,8 +33,7 @@ class OpenApiConfig {
     }
 
     @Bean
-    fun sortSchemasAlphabetically() = OpenApiCustomiser {
-        val schemas = it.components.schemas
-        it.components.schemas = schemas.toSortedMap()
+    fun sortSchemasAlphabetically() = OpenApiCustomizer {
+        it.components.schemas = it.components.schemas.toSortedMap()
     }
 }

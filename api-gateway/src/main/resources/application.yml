@@ -6,7 +6,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     open-in-view: false
     properties:
       hibernate:
@@ -23,6 +23,7 @@ springdoc:
   default-produces-media-type: application/json
   swagger-ui:
     path: /docs
+    tags-sorter: alpha
 
 server:
   error:

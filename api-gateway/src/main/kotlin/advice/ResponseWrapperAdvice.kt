@@ -7,17 +7,19 @@ import org.springframework.http.converter.HttpMessageConverter
 import org.springframework.http.server.ServerHttpRequest
 import org.springframework.http.server.ServerHttpResponse
 import org.springframework.web.bind.annotation.ControllerAdvice
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice
 
-@ControllerAdvice
+@ControllerAdvice(annotations = [RestController::class])
 class ResponseWrapperAdvice : ResponseBodyAdvice<Any> {
 
     override fun supports(
         returnType: MethodParameter,
         converterType: Class<out HttpMessageConverter<*>>
     ): Boolean {
-        // This advice should apply to all endpoints
-        return true
+        // Will only wrap the response if the controller is annotated with @RequestMapping
+        return returnType.containingClass.isAnnotationPresent(RequestMapping::class.java)
     }
 
     override fun beforeBodyWrite(
