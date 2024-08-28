@@ -6,9 +6,10 @@ import io.vinicius.banking.grpc.AccountResponse
 import io.vinicius.banking.grpc.AccountServiceGrpcKt
 import io.vinicius.banking.grpc.CreateAccountRequest
 import io.vinicius.banking.grpc.accountListResponse
+import io.vinicius.banking.shared.feat.account.AccountType
+import io.vinicius.banking.shared.feat.account.fromProto
 import io.vinicius.banking.transactions.exception.NotFoundException
 import io.vinicius.banking.transactions.feat.user.UserRepository
-import io.vinicius.banking.transactions.ktx.grpc.toModel
 import io.vinicius.banking.transactions.ktx.subject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -33,7 +34,7 @@ class AccountService(
 
         val account = Account(
             user = user,
-            type = request.type.toModel(),
+            type = AccountType.fromProto(request.type),
             balance = BigDecimal.ZERO,
             createdAt = OffsetDateTime.now()
         )

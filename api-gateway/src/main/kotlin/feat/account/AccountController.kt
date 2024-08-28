@@ -3,7 +3,7 @@ package io.vinicius.banking.api.feat.account
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.security.SecurityRequirement
 import io.swagger.v3.oas.annotations.tags.Tag
-import io.vinicius.banking.api.feat.account.dto.AccountCreateDto
+import io.vinicius.banking.api.feat.account.dto.AccountCreateRequestDto
 import jakarta.validation.Valid
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.PostMapping
@@ -22,7 +22,7 @@ class AccountController(private val accountService: AccountService) {
     @Operation(security = [SecurityRequirement(name = "access-token")])
     suspend fun createAccount(
         principal: Principal,
-        @Valid @RequestBody dto: AccountCreateDto
+        @Valid @RequestBody dto: AccountCreateRequestDto
     ) {
         accountService.createAccount(dto)
     }

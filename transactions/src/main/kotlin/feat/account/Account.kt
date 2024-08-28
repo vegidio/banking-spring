@@ -2,8 +2,10 @@ package io.vinicius.banking.transactions.feat.account
 
 import io.vinicius.banking.grpc.AccountResponse
 import io.vinicius.banking.grpc.accountResponse
+import io.vinicius.banking.shared.feat.account.AccountType
+import io.vinicius.banking.shared.feat.account.toProto
+import io.vinicius.banking.shared.ktx.toProto
 import io.vinicius.banking.transactions.feat.user.User
-import io.vinicius.banking.transactions.ktx.toProto
 import jakarta.persistence.Entity
 import jakarta.persistence.Enumerated
 import jakarta.persistence.GeneratedValue

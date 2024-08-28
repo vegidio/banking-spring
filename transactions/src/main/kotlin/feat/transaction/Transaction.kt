@@ -1,5 +1,6 @@
 package io.vinicius.banking.transactions.feat.transaction
 
+import io.vinicius.banking.shared.feat.transaction.TransactionType
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.Id

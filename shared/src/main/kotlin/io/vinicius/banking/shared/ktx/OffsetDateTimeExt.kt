@@ -1,4 +1,4 @@
-package io.vinicius.banking.api.ktx
+package io.vinicius.banking.shared.ktx
 
 import com.google.protobuf.Timestamp
 import java.time.OffsetDateTime
