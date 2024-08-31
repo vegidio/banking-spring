@@ -1,7 +1,6 @@
-package io.vinicius.banking.transactions.ktx
+package io.vinicius.banking.shared.ktx
 
 import com.nimbusds.jwt.SignedJWT
-import io.vinicius.banking.shared.ktx.toOffsetDateTime
 import org.springframework.security.oauth2.jwt.Jwt
 import java.time.OffsetDateTime
 

@@ -5,9 +5,9 @@ import com.nimbusds.jwt.SignedJWT
 import io.grpc.Metadata
 import io.grpc.ServerCall
 import io.grpc.kotlin.CoroutineContextServerInterceptor
+import io.vinicius.banking.shared.ktx.isFresh
+import io.vinicius.banking.shared.ktx.toJwt
 import io.vinicius.banking.transactions.exception.UnauthenticatedException
-import io.vinicius.banking.transactions.ktx.isFresh
-import io.vinicius.banking.transactions.ktx.toJwt
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ThreadContextElement
 import net.devh.boot.grpc.server.interceptor.GrpcGlobalServerInterceptor

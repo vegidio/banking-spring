@@ -5,8 +5,8 @@ import io.vinicius.banking.api.exception.BadRequestException
 import io.vinicius.banking.api.exception.HttpException
 import io.vinicius.banking.api.exception.ServerErrorException
 import io.vinicius.banking.api.exception.UnauthorizedException
-import io.vinicius.banking.api.ktx.capitalize
 import io.vinicius.banking.api.model.Response
+import io.vinicius.banking.shared.ktx.capitalize
 import jakarta.validation.ConstraintViolationException
 import org.springframework.http.ResponseEntity
 import org.springframework.http.converter.HttpMessageNotReadableException

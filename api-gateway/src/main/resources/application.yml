@@ -32,7 +32,7 @@ server:
 
 grpc:
   client:
-    account:
+    GLOBAL:
       address: static://localhost:9002
       negotiation-type: plaintext
 

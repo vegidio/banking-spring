@@ -1,6 +1,6 @@
 package io.vinicius.banking.api.feat.transaction.dto
 
-import io.vinicius.banking.api.feat.transaction.TransactionType
+import io.vinicius.banking.shared.feat.transaction.TransactionType
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Positive
@@ -16,5 +16,6 @@ data class TransactionCreateDto(
     @field:Positive
     val amount: BigDecimal,
 
+    val destinationAccountId: Int?,
     val message: String?
 )

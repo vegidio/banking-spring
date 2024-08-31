@@ -6,7 +6,7 @@ enum class AccountType {
     Checking,
     Savings;
 
-    companion object {}
+    companion object
 }
 
 fun AccountType.Companion.fromProto(proto: ProtoAccountType) = when (proto) {

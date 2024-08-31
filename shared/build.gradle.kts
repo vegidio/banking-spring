@@ -3,6 +3,8 @@ import com.google.protobuf.gradle.id
 plugins {
     alias(libs.plugins.kotlin)
     alias(libs.plugins.protobuf.plugin)
+    alias(libs.plugins.spring)
+    alias(libs.plugins.spring.boot)
 }
 
 group = "io.vinicius.banking.shared"
@@ -13,6 +15,8 @@ repositories {
 }
 
 dependencies {
+    implementation(libs.spring.oauth2)
+
     // gRPC
     api(libs.grpc.kotlin)
     api(libs.grpc.protobuf)

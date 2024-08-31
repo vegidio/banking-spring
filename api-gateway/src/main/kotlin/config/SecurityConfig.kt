@@ -9,8 +9,8 @@ import com.nimbusds.jwt.JWTClaimsSet
 import com.nimbusds.jwt.SignedJWT
 import io.github.oshai.kotlinlogging.KotlinLogging
 import io.vinicius.banking.api.exception.UnauthorizedException
-import io.vinicius.banking.api.ktx.isFresh
-import io.vinicius.banking.api.ktx.toJwt
+import io.vinicius.banking.shared.ktx.isFresh
+import io.vinicius.banking.shared.ktx.toJwt
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
