@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Run API Gateway" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-    <module name="banking.api-gateway.main" />
+    <module name="banking-spring.api-gateway.main" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="io.vinicius.banking.api.ApiGatewayApplication" />
     <method v="2">
       <option name="Make" enabled="true" />

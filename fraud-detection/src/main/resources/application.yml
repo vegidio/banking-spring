@@ -1,0 +1,11 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:19092
+    consumer:
+      group-id: fraud-detection
+      auto-offset-reset: earliest
+
+server:
+  error:
+    include-stacktrace: never
+  port: 3003

@@ -23,13 +23,17 @@ class TransactionController(private val service: TransactionService) {
 
     @PostMapping
     @Operation(security = [SecurityRequirement(name = "access-token")])
-    suspend fun createTransaction(@Valid @RequestBody dto: TransactionCreateDto): TransactionResponseDto {
+    suspend fun createTransaction(
+        @Valid @RequestBody dto: TransactionCreateDto
+    ): TransactionResponseDto {
         return service.createTransaction(dto)
     }
 
     @GetMapping("/{accountId}")
     @Operation(security = [SecurityRequirement(name = "access-token")])
-    suspend fun retrieveTransactions(@PathVariable("accountId") @Min(1) accountId: Int): List<TransactionResponseDto> {
+    suspend fun retrieveTransactions(
+        @PathVariable("accountId") @Min(1) accountId: Int
+    ): List<TransactionResponseDto> {
         return service.retrieveTransactions(accountId)
     }
 }

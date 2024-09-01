@@ -5,6 +5,7 @@ detekt = "1.23.4"
 grpc = "1.63.2"
 grpc-kotlin = "1.4.1"
 javax-xml = "2.3.1"
+kafka-protobuf = "7.7.0"
 kotlin = "2.0.10"
 kotlin-logging = "5.1.4"
 ktlint = "11.0.0"
@@ -37,6 +38,7 @@ grpc-protobuf = { module = "io.grpc:grpc-protobuf", version.ref = "grpc" }
 jackson-jaxb = { module = "com.fasterxml.jackson.module:jackson-module-jaxb-annotations" }
 jackson-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
 javax-xml = { module = "javax.xml.bind:jaxb-api", version.ref = "javax-xml" }
+kafka-protobuf = { module = "io.confluent:kafka-protobuf-serializer", version.ref = "kafka-protobuf" }
 kotlin-logging = { module = "io.github.oshai:kotlin-logging-jvm", version.ref = "kotlin-logging" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8" }
@@ -50,6 +52,7 @@ spring-graphql = { module = "org.springframework.boot:spring-boot-starter-graphq
 spring-graphql-test = { module = "org.springframework.graphql:spring-graphql-test" }
 spring-grpc-client = { module = "net.devh:grpc-client-spring-boot-starter", version.ref = "spring-grpc" }
 spring-grpc-server = { module = "net.devh:grpc-server-spring-boot-starter", version.ref = "spring-grpc" }
+spring-kafka = { module = "org.springframework.kafka:spring-kafka" }
 spring-oauth2 = { module = "org.springframework.boot:spring-boot-starter-oauth2-resource-server" }
 spring-test = { module = "org.springframework.boot:spring-boot-starter-test" }
 spring-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
