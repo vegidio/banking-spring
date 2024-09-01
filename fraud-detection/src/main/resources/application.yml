@@ -1,9 +1,7 @@
 spring:
   kafka:
-    bootstrap-servers: localhost:19092
-    consumer:
-      group-id: fraud-detection
-      auto-offset-reset: earliest
+    bootstrap-servers: http://localhost:19092
+    schema-registry-url: http://localhost:18081
 
 server:
   error:

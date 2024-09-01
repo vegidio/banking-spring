@@ -3,8 +3,8 @@ package io.vinicius.banking.api.feat.transaction
 import io.vinicius.banking.api.feat.transaction.dto.TransactionCreateDto
 import io.vinicius.banking.api.feat.transaction.dto.TransactionResponseDto
 import io.vinicius.banking.grpc.TransactionServiceGrpcKt
-import io.vinicius.banking.grpc.createTransactionRequest
-import io.vinicius.banking.grpc.retrieveByAccountRequest
+import io.vinicius.banking.grpc.mutateTransaction
+import io.vinicius.banking.grpc.queryTransaction
 import io.vinicius.banking.shared.feat.transaction.toProto
 import org.springframework.stereotype.Service
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service
 class TransactionService(private val grpcTransaction: TransactionServiceGrpcKt.TransactionServiceCoroutineStub) {
 
     suspend fun createTransaction(dto: TransactionCreateDto): TransactionResponseDto {
-        val request = createTransactionRequest {
+        val request = mutateTransaction {
             accountId = dto.accountId
             type = dto.type.toProto()
             amount = dto.amount.toPlainString()
@@ -25,7 +25,7 @@ class TransactionService(private val grpcTransaction: TransactionServiceGrpcKt.T
     }
 
     suspend fun retrieveTransactions(accountId: Int): List<TransactionResponseDto> {
-        val request = retrieveByAccountRequest {
+        val request = queryTransaction {
             this.accountId = accountId
         }
         val response = grpcTransaction.retrieve(request)

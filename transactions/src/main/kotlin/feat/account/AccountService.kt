@@ -1,11 +1,9 @@
 package io.vinicius.banking.transactions.feat.account
 
 import com.google.protobuf.Empty
-import io.vinicius.banking.grpc.AccountListResponse
-import io.vinicius.banking.grpc.AccountResponse
 import io.vinicius.banking.grpc.AccountServiceGrpcKt
-import io.vinicius.banking.grpc.CreateAccountRequest
-import io.vinicius.banking.grpc.accountListResponse
+import io.vinicius.banking.grpc.MutateAccount
+import io.vinicius.banking.proto.accountList
 import io.vinicius.banking.shared.feat.account.AccountType
 import io.vinicius.banking.shared.feat.account.fromProto
 import io.vinicius.banking.transactions.exception.NotFoundException
@@ -19,6 +17,8 @@ import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.security.core.context.SecurityContextHolder
 import java.math.BigDecimal
 import java.time.OffsetDateTime
+import io.vinicius.banking.proto.Account as ProtoAccount
+import io.vinicius.banking.proto.AccountList as ProtoAccountList
 
 @GrpcService
 class AccountService(
@@ -27,7 +27,7 @@ class AccountService(
 ) : AccountServiceGrpcKt.AccountServiceCoroutineImplBase() {
 
     @PreAuthorize("isAuthenticated()")
-    override suspend fun create(request: CreateAccountRequest): AccountResponse {
+    override suspend fun create(request: MutateAccount): ProtoAccount {
         val subjectId = SecurityContextHolder.getContext().subject
         val user = userRepo.findByIdOrNull(subjectId)
             ?: throw NotFoundException("User with id $subjectId not found")
@@ -47,13 +47,13 @@ class AccountService(
     }
 
     @PreAuthorize("isAuthenticated()")
-    override suspend fun retrieve(request: Empty): AccountListResponse {
+    override suspend fun retrieve(request: Empty): ProtoAccountList {
         val subjectId = SecurityContextHolder.getContext().subject
         val accounts = withContext(Dispatchers.IO) {
             accountRepo.findByUserId(subjectId)
         }
 
-        return accountListResponse {
+        return accountList {
             results.addAll(accounts.map { it.toProto() })
         }
     }

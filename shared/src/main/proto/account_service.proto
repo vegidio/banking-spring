@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package io.vinicius.banking.grpc;
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "account_model.proto";
+
+message MutateAccount {
+    io.vinicius.banking.proto.AccountType type = 1;
+}
+
+service AccountService {
+    rpc Create(MutateAccount) returns (io.vinicius.banking.proto.Account);
+    rpc Retrieve(google.protobuf.Empty) returns (io.vinicius.banking.proto.AccountList);
+}

@@ -4,7 +4,7 @@ import com.google.protobuf.Empty
 import io.vinicius.banking.api.feat.account.dto.AccountCreateRequestDto
 import io.vinicius.banking.api.feat.account.dto.AccountResponseDto
 import io.vinicius.banking.grpc.AccountServiceGrpcKt.AccountServiceCoroutineStub
-import io.vinicius.banking.grpc.createAccountRequest
+import io.vinicius.banking.grpc.mutateAccount
 import io.vinicius.banking.shared.feat.account.toProto
 import org.springframework.stereotype.Service
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service
 class AccountService(private val grpcAccount: AccountServiceCoroutineStub) {
 
     suspend fun createAccount(dto: AccountCreateRequestDto): AccountResponseDto {
-        val request = createAccountRequest {
+        val request = mutateAccount {
             type = dto.type.toProto()
         }
 

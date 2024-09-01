@@ -1,11 +1,11 @@
 package io.vinicius.banking.api.feat.transaction.dto
 
-import io.vinicius.banking.grpc.TransactionResponse
 import io.vinicius.banking.shared.feat.transaction.TransactionType
 import io.vinicius.banking.shared.feat.transaction.fromProto
 import io.vinicius.banking.shared.ktx.toOffsetDateTime
 import java.math.BigDecimal
 import java.time.OffsetDateTime
+import io.vinicius.banking.proto.Transaction as ProtoTransaction
 
 data class TransactionResponseDto(
     val id: Int,
@@ -17,7 +17,7 @@ data class TransactionResponseDto(
     val createdAt: OffsetDateTime
 ) {
     companion object {
-        fun fromProto(proto: TransactionResponse): TransactionResponseDto {
+        fun fromProto(proto: ProtoTransaction): TransactionResponseDto {
             return TransactionResponseDto(
                 id = proto.id,
                 accountId = proto.accountId,

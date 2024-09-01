@@ -1,6 +1,6 @@
 package io.vinicius.banking.shared.feat.transaction
 
-import io.vinicius.banking.grpc.TransactionType as ProtoTransactionType
+import io.vinicius.banking.proto.TransactionType as ProtoTransactionType
 
 enum class TransactionType {
     Deposit,

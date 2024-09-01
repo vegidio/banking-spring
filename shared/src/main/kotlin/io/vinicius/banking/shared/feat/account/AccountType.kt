@@ -1,6 +1,6 @@
 package io.vinicius.banking.shared.feat.account
 
-import io.vinicius.banking.grpc.AccountType as ProtoAccountType
+import io.vinicius.banking.proto.AccountType as ProtoAccountType
 
 enum class AccountType {
     Checking,

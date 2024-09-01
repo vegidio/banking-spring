@@ -1,7 +1,6 @@
 package io.vinicius.banking.transactions.feat.account
 
-import io.vinicius.banking.grpc.AccountResponse
-import io.vinicius.banking.grpc.accountResponse
+import io.vinicius.banking.proto.account
 import io.vinicius.banking.shared.feat.account.AccountType
 import io.vinicius.banking.shared.feat.account.toProto
 import io.vinicius.banking.shared.ktx.toProto
@@ -16,6 +15,7 @@ import org.hibernate.annotations.JdbcType
 import org.hibernate.dialect.PostgreSQLEnumJdbcType
 import java.math.BigDecimal
 import java.time.OffsetDateTime
+import io.vinicius.banking.proto.Account as ProtoAccount
 
 @Entity
 @Table(name = "accounts")
@@ -34,9 +34,9 @@ data class Account(
     val createdAt: OffsetDateTime
 )
 
-fun Account.toProto(): AccountResponse {
+fun Account.toProto(): ProtoAccount {
     val self = this
-    return accountResponse {
+    return account {
         id = self.id
         userId = self.user.id
         type = self.type.toProto()
